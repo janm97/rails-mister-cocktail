@@ -1,7 +1,12 @@
-<h1>Our Cocktails</h1>
-<% @cocktail.each do |cocktail| %>
-<ul>
-  <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-</ul>
-<% end %>
-<%= link_to 'Add Cocktail', new_cocktail_path, class: 'btn btn-primary' %>
+<div class="container">
+  <h2>Our Cocktails</h2>
+  <div class="row cocktail-cards">
+    <% @cocktail.each do |cocktail| %>
+    <div class="col-4">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://picsum.photos/200/300')">
+        <a href=<%=cocktail_path(cocktail)%>><h3><%= cocktail.name %></h3></a>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>

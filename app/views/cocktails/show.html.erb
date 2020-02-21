@@ -1,9 +1,8 @@
 <div class="container">
   <div class="text-center">
-  <h1><%= @cocktail.name %></h1>
-  <p>This is a sick cocktail!</p>
+  <h1 class="p-3"><%= @cocktail.name %></h1>
   <h3>Ingredients:</h3>
-  <ul class="list-group">
+  <ul class="list-group p-3">
     <% @cocktail.doses.each do |dose| %>
       <li class="list-group-item"><%= dose.description %> | <%= dose.ingredient.name %></li>
     <% end %>
@@ -12,7 +11,7 @@
 
   <div class="row justify-content-around">
     <div class="col-6">
-      <h4>Add a new ingredient to your cocktail</h4>
+      <p class="text-center">Add a new ingredient to your cocktail</p>
       <%= simple_form_for([@cocktail, @dose]) do |f| %>
         <%= f.input :description %>
         <%= f.input :ingredient_id, collection: Ingredient.all %>
@@ -20,8 +19,9 @@
       <% end %>
     </div>
   </div>
+  <%= link_to 'All Cocktails', cocktails_path, class: 'btn btn-primary' %>
 </div>
 
-<%= link_to 'All Cocktails', cocktails_path, class: 'btn btn-primary' %>
+
 
 
